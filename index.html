@@ -14,10 +14,15 @@
     <h1>Select your local images to make your own slider</h1>
     <form>
       <label for="selectYourImages">Get Your Images</label>
-      <input type='file' id="selectYourImages" accept="image/png, image/jpeg" multiple/>
+      <input type='file' id="selectYourImages" accept="image/png, image/jpeg" multiple onchange="previewFiles()"/>
     </form>
+    <div class="alert">
+      <img src="https://image.flaticon.com/icons/svg/179/179386.svg" alt="Alert icon">
+      <p>You have to select 2 images minimum & 10 images maximum</p>
+    </div>
   </section>
   
 
+  <script src="js/main.js" charset="utf-8"></script>
 </body>
 </html>
