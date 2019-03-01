@@ -79,3 +79,20 @@ input#selectYourImages {
   font-size: 18px;
   white-space: nowrap;
 }
+
+/* Slider style */
+#slider {
+  width: 750px;
+  height: 500px;
+  background-color: #ddd;
+  border-radius: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+#slider.run {
+  display: flex;
+  /* display: block; */
+}

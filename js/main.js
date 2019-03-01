@@ -1,4 +1,5 @@
 const interfaceContent = document.querySelector(".content");
+const sliderSection = document.querySelector("#slider");
 const alert = document.querySelector(".alert");
 
 let imagesAsDataURL = [];
@@ -11,14 +12,16 @@ function previewFiles() {
     reader.onload = function(e) {
       imagesAsDataURL.push(this.result);
     };
-    if (files.length < 2 || files.length > 10) {
-      alert.classList.add("show");
-    } else {
-      alert.classList.remove("show");
-      interfaceContent.classList.add("hidden");
-      startTheShow();
-    }
     reader.readAsDataURL(file);
+  }
+
+  if (files.length < 2 || files.length > 10) {
+    alert.classList.add("show");
+  } else {
+    alert.classList.remove("show");
+    sliderSection.classList.add("run");
+    interfaceContent.classList.add("hidden");
+    runSlider();
   }
 
   if (files) {
@@ -26,6 +29,14 @@ function previewFiles() {
   }
 }
 
-function startTheShow() {
-  console.log(imagesAsDataURL);
+function runSlider() {
+  setTimeout(function() {
+    console.log(imagesAsDataURL.length);
+    imagesAsDataURL.forEach(img => {
+      let sliderImg = document.createElement("img");
+      sliderImg.classList.add("slider-img");
+      sliderImg.setAttribute("src", `${img}`);
+      sliderSection.querySelector(".track").appendChild(sliderImg);
+    });
+  }, 100);
 }
